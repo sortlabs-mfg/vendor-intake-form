@@ -208,7 +208,7 @@ function AdminPanel({ onBack }) {
   useEffect(() => { fetchVendors(); }, [search, catFilter]);
 
   const handleDelete = async (id, name) => {
-    if (!confirm(`Delete vendor "${name}"? This cannot be undone.`)) return;
+   if (!window.confirm(`Delete vendor "${name}"? This cannot be undone.`)) return;
     await fetch(`${API_URL}/api/vendors/${id}`, { method: "DELETE" });
     fetchVendors();
     fetchStats();
